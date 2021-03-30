@@ -156,7 +156,8 @@ export class HttpPluginWeb extends WebPlugin implements HttpPlugin {
   }
 
   async deleteCookie(options: HttpDeleteCookieOptions) {
-    document.cookie = options.key + '=; Max-Age=0';
+//     document.cookie = options.key + '=; Max-Age=0';
+    document.cookie = options.key + `=; expires=${new Date().toUTCString()};path=/`;
   }
 
   async clearCookies(_options: HttpClearCookiesOptions) {
